@@ -2,18 +2,32 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Products', {
+    await queryInterface.createTable('RolePermissions', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
-        type: Sequelize.STRING
+      roleId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'roles',
+          },
+          key: 'id'
+        },
+        allowNull: false
       },
-      price: {
-        type: Sequelize.DOUBLE
+      permissionId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'permissions',
+          },
+          key: 'id'
+        },
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
@@ -42,6 +56,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Products');
+    await queryInterface.dropTable('RolePermissions');
   }
 };
