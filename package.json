@@ -1,0 +1,54 @@
+{
+  "name": "tatunting",
+  "version": "1.0.0",
+  "description": "The only accounting app you need",
+  "main": "index.js",
+  "engines": {
+    "node": "12.14.1",
+    "npm": "6.14.4"
+  },
+  "scripts": {
+    "client": "cd client && npm run start",
+    "server": "nodemon index.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sandermoen/instaclone.git"
+  },
+  "keywords": [
+    "Accounting"
+  ],
+  "author": "yogaxv",
+  "license": "MIT License\n",
+  "bugs": {
+    "url": "https://github.com/yogaxv/tatunting/issues"
+  },
+  "homepage": "https://github.com/yogaxv/tatunting#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.1.1",
+    "handlebars": "^4.7.6",
+    "helmet": "^3.21.2",
+    "jwt-simple": "^0.5.6",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.6",
+    "nodemon": "^2.0.4",
+    "socket.io": "^2.4.1",
+    "validator": "^12.2.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.23.2"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "morgan": "^1.9.1"
+  }
+}
